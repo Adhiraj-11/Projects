@@ -1,80 +1,65 @@
 import pygame
-
+ 
+# Define some colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+ 
 pygame.init()
-
-blue = (0, 0, 255)
-red = (255, 0, 0)
-green = (0, 255, 0)
-black = (0, 0, 0)
-
-ball = 10
-length = 500
-width = 500
-
-rectx = 250
-recty = 250
-
-brickw = 45
-brickL = 10
-
-new_x1 = 0
-new_y1 = 0
-
+ 
+# Set the height and width of the screen
+size = [700, 500]
+screen = pygame.display.set_mode(size)
+ 
+pygame.display.set_caption("Bouncing Rectangle")
+ 
+# Loop until the user clicks the close button.
+done = False
+ 
+# Used to manage how fast the screen updates
 clock = pygame.time.Clock()
-
-brickx1 = width // 2 - brickw // 2
-bricky1 = length - brickL - 5
-
-brick_ki_tezi = 5
-
-rect_changex = -3
-rect_changey = -2
-
-display = pygame.display.set_mode((width, length))
-pygame.display.set_caption("BRICK BALL GAME ")
-
-game_over = False
-
-while not game_over:
-    
+ 
+# Starting position of the rectangle
+rect_x = 50
+rect_y = 50
+ 
+# Speed and direction of rectangle
+rect_change_x = 2
+rect_change_y = 2
+ 
+# Main Program Loop 
+while not done:
+    # --- Event Processing
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            game_over = True          
-
-    keys = pygame.key.get_pressed()
-
-    if keys[pygame.K_RIGHT] and brickx1 <= width - brickw:
-        new_x1 = brick_ki_tezi
-        new_y1 = 0
-
-        brickx1 += new_x1
-
-    if keys[pygame.K_LEFT] and -brickx1 < 0:
-        new_x1 = -brick_ki_tezi
-        new_y1 = 0
-
-        brickx1 += new_x1
-
-    rectx += rect_changex
-    recty += rect_changey
-
-    if rectx >= 500 or rectx < 0:
-        rect_changex = rect_changex * -1
-    if recty < 0:
-        rect_changey = -rect_changey
-    if recty >= 500:
-        game_over = True
-
-    if rectx in range(brickx1, brickx1 + brickw) and recty in range(bricky1 - brickL, bricky1):
-        print("CONTACT")
-        #rect_changex = rect_changex * -1
-        rect_changey = rect_changey * -1
-    
-
-    display.fill(black)
-    pygame.draw.rect(display, blue, [brickx1, bricky1, brickw, brickL] ) 
-    pygame.draw.rect(display, green, [rectx, recty, ball, ball])       
-    pygame.display.flip()
-
+            done = True
+ 
+    # --- Logic
+    # Move the rectangle starting point
+    rect_x += rect_change_x
+    rect_y += rect_change_y
+ 
+    # Bounce the ball if needed
+    if rect_y > 450 or rect_y < 0:
+        rect_change_y = rect_change_y * -1
+    if rect_x > 650 or rect_x < 0:
+        rect_change_x = rect_change_x * -1
+ 
+    # --- Drawing
+    # Set the screen background
+    screen.fill(BLACK)
+ 
+    # Draw the rectangle
+    pygame.draw.rect(screen, WHITE, [rect_x, rect_y, 50, 50])
+    pygame.draw.rect(screen, RED, [rect_x + 10, rect_y + 10, 30, 30])
+ 
+    # --- Wrap-up
+    # Limit to 60 frames per second
     clock.tick(60)
-    
+ 
+    # Go ahead and update the screen with what we've drawn.
+    pygame.display.flip()
+ 
+# Close everything down
+pygame.quit()
