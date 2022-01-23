@@ -88,7 +88,7 @@ def gameloop():
                 elif event.key == pygame.K_s:
                     new_x1 = 0
                     new_y1 = saanp_ki_tezi
-                print(event)
+                #print(event)
 
         if x1 > chodai or x1 < 0 or y1 > lambai or y1 < 0:
             game_running = False
