@@ -15,7 +15,7 @@ chodai = 300
 
 score = 0
 saanp = 10
-saanp_ki_tezi = 10
+saanp_ki_tezi = 5
 
 display = pygame.display.set_mode((chodai, lambai))
 pygame.display.set_caption("SAANP KA KHEL ")
