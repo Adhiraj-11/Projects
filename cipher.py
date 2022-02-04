@@ -1,20 +1,3 @@
-# str = input("Enter the sentence: ")
-
-# shift = int(input("Enter the shift: "))
-
-# code = ""
-# original = ""
-
-# for char in str:
-#     code += chr(ord(char) + shift)
-    
-# # for char in str:
-# #     original += chr(ord(char) - shift)
-
-# print(code)
-# print(original)
-
-
 str1=input("enter string: ")
 str2=''
 a=input("encrypt the string?(yes/no): ")
