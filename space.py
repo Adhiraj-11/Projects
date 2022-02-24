@@ -51,9 +51,9 @@ def maze_kero():
             if event.type == pygame.QUIT:
                 haar_gye_aap = True
 
-        #red.x += 1
-        #red.y += -1
-        #yellow.x += -1
+        red.x += 1
+        red.y += -1
+        yellow.x += -1
 
         drawing(red, yellow)
        

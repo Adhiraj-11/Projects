@@ -10,12 +10,12 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 black = (0, 0, 0)
 
-lambai = 300
-chodai = 300
+lambai = 400
+chodai = 500
 
 score = 0
 saanp = 10
-saanp_ki_tezi = 5
+saanp_ki_tezi = 20
 
 display = pygame.display.set_mode((chodai, lambai))
 pygame.display.set_caption("SAANP KA KHEL ")
@@ -103,7 +103,6 @@ def gameloop():
         saanp_head.append(x1)
         saanp_head.append(y1)
         saanp_ki_list.append(saanp_head)
-
 
         if len(saanp_ki_list) > saanp_ki_lambai:
             print(saanp_ki_list)
