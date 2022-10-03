@@ -10,8 +10,8 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 black = (0, 0, 0)
 
-lambai = 400
-chodai = 500
+lambai = 300
+chodai = 300
 
 score = 0
 saanp = 10
